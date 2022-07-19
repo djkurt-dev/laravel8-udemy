@@ -54,7 +54,16 @@ $posts = [
 
 //Route::resource('posts', PostsController::class)->only(['index','show','create','store']);
 //->only(['index','show','create','store']);
-Route::resource('posts', PostsController::class)->only(['index','show','create','store']);
+Route::resource('posts', PostsController::class)->only([
+  'index',
+  'show',
+  'create',
+  'store'
+]);
+
+// Route::resource('posts', PostsController::class)->names([
+//   'create' => 'posts.build'
+// ]);
 
 // Route::get('/posts', function () use ($posts) {
 //   // dd(request()->all());

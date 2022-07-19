@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BlogPost;
+use App\Http\Requests\StorePost;
 
 class PostsController extends Controller
 {
@@ -51,15 +52,30 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
-        //
+        // $request->validate([
+        //     'title'=>'bail|required|min:5|max:100',
+        //     'content'=>'required|min:10'
+        // ]);
+        $validated = $request->validated();
+        $post = BlogPost::create($validated); //using model mass assignment
+        // $post = new BlogPost();
+        // //$post->title = $request->input('title');
+        // $post->title = $validated['title'];
+        // //$post->content = $request->input('content');
+        // $post->content = $validated['content'];
+        // $post->save();
+        
+        $request->session()->flash('status','The blog post was created successfully!');
+        return redirect()->route('posts.show',['post' => $post->id]);
     }
 
     /**
