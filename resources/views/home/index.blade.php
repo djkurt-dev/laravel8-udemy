@@ -4,5 +4,5 @@
 
 @section('content')
     <h1>Home Page</h1>
-    <p>My name is Engr. Kurt Timajo</p>
+    <p>My name is Engr. Kurt Hakdog</p>
 @endsection

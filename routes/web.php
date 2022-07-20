@@ -115,3 +115,7 @@ Route::prefix('/fun')->name('fun.')->group(function () use ($posts) {
         return response()->download(public_path('/daniel.jpg'), 'daniel-pic.jpg');
       })->name('download');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
