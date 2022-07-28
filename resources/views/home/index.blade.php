@@ -3,6 +3,6 @@
 @section('title','Home Page')
 
 @section('content')
-    <h1>Home Page</h1>
-    <p>My name is Engr. Kurt Hakdog</p>
+    <h1>Welcome to Laravel 8!</h1>
+    <p>I am a computer engineer.</p>
 @endsection
